@@ -1,18 +1,35 @@
-import './App.css';
-import ButtonPrimary from './components/utils/ButtonPrimary';
+import "./App.css";
+import ButtonPrimary from "./components/utils/ButtonPrimary";
+import Greeting from "./components/utils/Greeting";
+import ListCard from "./components/utils/ListCard";
 function App() {
-  const title = "check out";
-  const handleClicked = ()=>{
-    console.log("Button Clicked!");
+  
+  const style = {
+    backgroundColor: "red",
+    width: "200px",
+    height: "80px",
+    fontSize: "10px",
+    borderRadius: "10px"
+   
+}
+  const handleClick = ()=>{
+    console.log("Button Clicked");
   }
-  const fruit = ["Apple", "Banana", "Orange"];
   const user = {
     username: "Heang",
     age: 22,
-  }
+  };
+  const { username, age } = user;
+  console.log("User info" + username, age);
   return (
     <>
- <ButtonPrimary title={title} handleClick={handleClicked} fruit={fruit} user={user}/>
+    <Greeting isLoggedIn={false}/>
+    <ListCard/>
+      <ButtonPrimary
+       title={"Logout"}
+       handleClick={handleClick}
+       styleParent={style}
+      />
     </>
   );
 }
